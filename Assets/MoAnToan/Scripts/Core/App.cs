@@ -110,10 +110,12 @@ namespace MoAnToan
 
             UIK.Spacer(c, 10);
             UIK.Txt(c, "AN TOÀN HẦM LÒ", 15, UIK.Y, FontStyle.Bold);
-            UIK.Txt(c, "Bản test 2 game", 36, UIK.Ink, FontStyle.Bold);
-            UIK.Txt(c, "Ý tưởng 5 và 6 — học và nhận diện quy định an toàn lao động trong khai thác than hầm lò.", 17, UIK.Mute);
+            UIK.Txt(c, "Bộ game an toàn mỏ", 32, UIK.Ink, FontStyle.Bold);
+            UIK.Txt(c, "Bộ 4 game giáo dục — học tập, giám sát và nhận diện quy chuẩn an toàn lao động khai thác than hầm lò (QCVN 01:2011/BCT).", 15, UIK.Mute);
             UIK.Spacer(c, 4);
 
+            GameCard(c, "1", "Hành trình thợ mỏ an toàn", "Nhập vai công nhân: chuẩn bị tư trang, xếp ba lô, loại bỏ vật cấm và nhận đồ nhà đèn.", "backpack", () => new Game1().Start());
+            GameCard(c, "2", "Trực ban an toàn", "Phòng điều hành Mông Dương: theo dõi camera, giám sát SCADA và ra quyết định xử lý tình huống.", "cam", () => new Game2().Start());
             GameCard(c, "5", "Chinh phục đường lò", "Thử thách mỗi ngày: trạm học 60–90 giây, tim, chuỗi ngày, ôn câu sai, xếp hạng tổ.", "book", () => new Game5().Start());
             GameCard(c, "6", "Đường lò không sai sót", "Quan sát từng đoạn lò: an toàn thì đi tiếp, thấy bất thường thì báo cáo và chỉ ra chỗ sai.", "helmet", () => new Game6().Start());
 
