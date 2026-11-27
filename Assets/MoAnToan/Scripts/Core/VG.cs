@@ -222,13 +222,13 @@ namespace MoAnToan
                     g.Polyline(new[] { new Vector2(14, 5), new Vector2(7, 12), new Vector2(14, 19) }, 2.8f, k);
                     break;
                 case "backpack":
-                    g.Round(4, 5, 16, 16, 3, k);
-                    g.Round(6, 12, 12, 7, 2, UIK.Hex("#44220d"));
+                    g.Rect(4, 5, 16, 16, k);
+                    g.Rect(6, 12, 12, 7, UIK.Hex("#44220d"));
                     g.Rect(7, 2, 10, 3.5f, k);
                     break;
                 case "cam":
                 case "cctv":
-                    g.Round(3, 8, 14, 9, 2, k);
+                    g.Rect(3, 8, 14, 9, k);
                     g.Tri(new Vector2(17, 10), new Vector2(22, 7), new Vector2(22, 18), k);
                     g.Circle(10, 12.5f, 2.5f, UIK.Hex("#111111"));
                     break;
@@ -238,22 +238,23 @@ namespace MoAnToan
                     g.Line(new Vector2(6, 14), new Vector2(18, 14), 2f, UIK.Hex("#ffffff"));
                     break;
                 case "boots":
-                    g.Round(5, 5, 6, 11, 1.5f, k); g.Round(5, 13, 10, 7, 2f, k);
-                    g.Round(13, 5, 6, 11, 1.5f, k); g.Round(13, 13, 10, 7, 2f, k);
+                    g.Rect(5, 5, 6, 11, k); g.Rect(5, 13, 10, 7, k);
+                    g.Rect(13, 5, 6, 11, k); g.Rect(13, 13, 10, 7, k);
                     break;
                 case "gloves":
-                    g.Round(6, 8, 12, 12, 3, k);
-                    g.Round(4, 11, 4, 6, 1.5f, k);
+                    g.Rect(6, 8, 12, 12, k);
+                    g.Rect(4, 11, 4, 6, k);
                     break;
                 case "phone":
-                    g.Round(7, 3, 10, 18, 2, k);
+                    g.Rect(7, 3, 10, 18, k);
                     g.Rect(8.5f, 5, 7, 12, UIK.Bg);
                     g.Circle(12, 19, 0.9f, UIK.Mute);
                     break;
                 case "lighter":
-                    g.Round(8, 9, 8, 12, 2, k);
+                    g.Rect(8, 9, 8, 12, k);
                     g.Rect(9, 4, 6, 5, UIK.Hex("#dcdcdc"));
-                    g.Flame(12, 2.5f, 2f, UIK.Hex("#ff7733"));
+                    g.Circle(12, 4f, 1.8f, UIK.Hex("#ff7733"));
+                    g.Tri(new Vector2(10.5f, 4f), new Vector2(13.5f, 4f), new Vector2(12f, 1f), UIK.Hex("#ffc21a"));
                     break;
                 case "lamp":
                     g.Circle(12, 12, 7, k);

@@ -117,6 +117,11 @@ namespace MoAnToan
             return le;
         }
 
+        public static VerticalLayoutGroup VL(GameObject go, float spacing, int pad, bool fit)
+        {
+            return VL(go, spacing, pad, pad, pad, pad, fit);
+        }
+
         public static VerticalLayoutGroup VL(GameObject go, float spacing, int padL = 0, int padR = 0, int padT = 0, int padB = 0, bool fit = false)
         {
             var v = go.AddComponent<VerticalLayoutGroup>();
@@ -201,16 +206,22 @@ namespace MoAnToan
         }
 
         // ------------------------------------------------------------------ modal / toast
+        public static void Modal(Action<RectTransform, Action> build)
+        {
+            var sheet = Modal(out var close);
+            build?.Invoke(sheet, close);
+        }
+
         public static RectTransform Modal(out Action close)
         {
-            var dim = Flat(OverlayRoot, new Color(0, 0, 0, 0.72f), "Modal");
+            var dim = Flat(OverlayRoot, new Color(0, 0, 0, 0.75f), "Modal");
             Stretch(dim.rectTransform);
             var sheet = Box(dim.transform, P, Round, "Sheet");
             var rt = sheet.rectTransform;
-            rt.anchorMin = new Vector2(0.5f, 0); rt.anchorMax = new Vector2(0.5f, 0); rt.pivot = new Vector2(0.5f, 0);
-            float w = Mathf.Min(App.ColumnWidth, 560);
-            rt.sizeDelta = new Vector2(w, 0); rt.anchoredPosition = new Vector2(0, -24);
-            VL(sheet.gameObject, 12, 20, 20, 22, 46, true);
+            rt.anchorMin = new Vector2(0.5f, 0.5f); rt.anchorMax = new Vector2(0.5f, 0.5f); rt.pivot = new Vector2(0.5f, 0.5f);
+            float w = Mathf.Min(App.ColumnWidth - 36, 400);
+            rt.sizeDelta = new Vector2(w, 0); rt.anchoredPosition = Vector2.zero;
+            VL(sheet.gameObject, 12, 20, 20, 22, 26, true);
             var go = dim.gameObject;
             close = () => { if (go != null) UnityEngine.Object.Destroy(go); };
             return rt;
